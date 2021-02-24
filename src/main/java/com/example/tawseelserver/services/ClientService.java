@@ -4,6 +4,7 @@ import com.example.tawseelserver.tables.Client;
 import com.example.tawseelserver.tables.Repos.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class ClientService
@@ -30,7 +31,7 @@ public class ClientService
         isValid = isValid && isAlpha(client.getFirstName());
         isValid = isValid && isAlpha(client.getLastName());
         isValid = isValid && !clientRepository.existsClientsByEmail(client.getEmail());
-        isValid = isValid && !clientRepository.existsClientsByPhoneNumber(client.getPhoneNumber());
+//        isValid = isValid && !clientRepository.existsClientsByPhoneNumber(client.getPhoneNumber());
 
         return isValid;
     }

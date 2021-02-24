@@ -1,44 +1,38 @@
 package com.example.tawseelserver.tables;
 
-import org.springframework.data.annotation.Id;
-
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "Client")
 public class Client
 {
-    @javax.persistence.Id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "firstName")
+    @Column(name = "first_name")
     private String firstName;
 
-    @Column(name = "lastName")
+    @Column(name = "last_name")
     private String lastName;
 
     @Column(name =  "email")
     private String email;
 
-    @Column(name =  "registrationDate")
-    private String registrationDate;
+    @Column(name = "registration_date")
+    private LocalDate registrationDate;
 
     @Column(name =  "password")
     private String password;
 
-    @Column(name =  "phoneNumber")
-    private String phoneNumber;
-
-    public Client(String firstName, String lastName, String email, String registrationDate, String password, String phoneNumber)
+    public Client(String firstName, String lastName, String email, LocalDate registrationDate, String password)
     {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.registrationDate = registrationDate;
         this.password = password;
-        this.phoneNumber = phoneNumber;
     }
 
     public Client()
@@ -85,12 +79,12 @@ public class Client
         this.email = email;
     }
 
-    public String getRegistrationDate()
+    public LocalDate getRegistrationDate()
     {
         return registrationDate;
     }
 
-    public void setRegistrationDate(String registrationDate)
+    public void setRegistrationDate(LocalDate registrationDate)
     {
         this.registrationDate = registrationDate;
     }
@@ -105,20 +99,11 @@ public class Client
         this.password = password;
     }
 
-    public String getPhoneNumber()
-    {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber)
-    {
-        this.phoneNumber = phoneNumber;
-    }
 
     @Override
     public String toString()
     {
-        return "Clients{" + "id=" + id + ", firstName='" + firstName + '\'' + ", latName='" + lastName + '\'' + ", email='" + email + '\'' + ", registrationDate='" + registrationDate + '\'' + ", password='" + password + '\'' + ", phoneNumber='" + phoneNumber + '\'' + '}';
+        return "Clients{" + "id=" + id + ", firstName='" + firstName + '\'' + ", latName='" + lastName + '\'' + ", email='" + email + '\'' + ", registrationDate='" + registrationDate + '\'' + ", password='" + password + '\'' + '\'' + '}';
     }
 
 

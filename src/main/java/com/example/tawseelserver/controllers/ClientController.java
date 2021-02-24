@@ -21,13 +21,14 @@ public class ClientController
             @PathVariable("password") String password)
     {
         boolean isSignInSucceeded  = clientService.signIn(email, password);
-        return new ResponseEntity<Boolean>(isSignInSucceeded, HttpStatus.OK);
+        return new ResponseEntity<>(isSignInSucceeded, HttpStatus.OK);
     }
 
     @PostMapping(path = "/add")
-    public ResponseEntity<Client> signUp(@RequestBody Client client)
+    public ResponseEntity<?> signUp(@RequestBody Client client)
     {
+        System.out.println("hello");
         clientService.signUp(client);
-        return new ResponseEntity<>(client, HttpStatus.CREATED);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 }
