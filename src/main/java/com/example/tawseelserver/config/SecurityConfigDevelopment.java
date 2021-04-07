@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
@@ -14,6 +15,11 @@ public class SecurityConfigDevelopment  extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) {
+        try {
+            http.cors().and().csrf().disable();
+        } catch (Exception ignored) {
+
+        }
         LOGGER.info("Run DEVELOPMENT Security Configuration");
     }
 }
