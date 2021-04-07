@@ -21,6 +21,11 @@ public class LoginController
     @Autowired
     TokensManager tokensManager;
 
+    @GetMapping
+    public String helloWorld(){
+        return "Hello world";
+    }
+
     @PostMapping(path = "/register/store")
     public ResponseEntity<Boolean> signUp(@RequestBody Store store)
     {

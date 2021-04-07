@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "security.require-ssl",
+      "type": "java.lang.String",
+      "description": "Description for security.require-ssl."
+  }
+] }
