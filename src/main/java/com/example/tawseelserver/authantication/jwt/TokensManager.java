@@ -16,32 +16,10 @@ import java.util.Date;
 @Component
 @Scope("singleton")
 public class TokensManager {
-
-//
     private final String  key = "securesecuresecuresecuresecuresecuresecuresecuresecuresecuresecuresecuresecuresecuresecuresecuresecure";
     static final long ONE_MINUTE_IN_MILLIS=60000;//millisecs
     final String userIdHeaderKey = "userId";
-    public Integer verifyToken(String token)/*throws TokenExpiredException */ {
-        Integer  userId = null;
-        try {
-            Jws<Claims> claimsJws = Jwts.parserBuilder()
-                    .setSigningKey(Keys.hmacShaKeyFor(key.getBytes()))
-                    .build()
-                    .parseClaimsJws(token);
 
-            JwsHeader header = claimsJws.getHeader();
-            Date tokenExpiration = claimsJws.getBody().getExpiration();
-            Date now = new Date();
-            if (tokenExpiration.after(now)) {
-                userId = (int) header.get(userIdHeaderKey);
-            }
-            return userId;
-        } catch (Exception e) {
-            System.out.println("Time out");
-        }
-
-        return userId;
-    }
 
     public String generateToken(int userId) {
         Calendar date = Calendar.getInstance();

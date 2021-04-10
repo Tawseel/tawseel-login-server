@@ -29,7 +29,7 @@ public class LoginController
     @PostMapping(path = "/register/store")
     public ResponseEntity<Boolean> signUp(@RequestBody Store store)
     {
-        boolean isSignUp =  loginService.signUp(store);
+        boolean isSignUp = loginService.signUp(store);
         HttpStatus httpStatus = isSignUp ? HttpStatus.CREATED : HttpStatus.OK;
         return new ResponseEntity<>(isSignUp, httpStatus);
     }
