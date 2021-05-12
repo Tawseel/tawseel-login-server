@@ -47,6 +47,7 @@ public class LoginController
     {
         String token = loginService.signIn(auth, userType);
         boolean isLoginSuccessful = token != null;
+        System.out.printf("is log in successful: %s ) email : %s, password: %s \n", isLoginSuccessful ? "yes" : "no", auth.getEmail(), auth.getPassword());
         return new ResponseEntity<>(isLoginSuccessful, tokensManager.getTokenHeader(token),HttpStatus.OK);
     }
 
