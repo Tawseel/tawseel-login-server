@@ -28,8 +28,6 @@ public class LoginService
         isValid = isValid && client.getEmail() != null;
         isValid = isValid && !clientRepository.existsClientByEmail(client.getEmail());
         isValid = isValid && client.getPassword() != null;
-//        isValid = isValid && client.getEmail().contains("@");
-//        isValid = isValid && client.getPassword().length() >= 8;
         if(isValid) {
             clientRepository.saveAndFlush(client);
         }
@@ -42,8 +40,6 @@ public class LoginService
         isValid = isValid && store.getEmail() != null;
         isValid = isValid && !storeRepository.existsStoreByEmail(store.getEmail());
         isValid = isValid && store.getPassword() != null;
-//        isValid = isValid && store.getEmail().contains("@");
-//        isValid = isValid && store.getPassword().length() >= 8;
         if(isValid) {
             storeRepository.saveAndFlush(store);
         }
